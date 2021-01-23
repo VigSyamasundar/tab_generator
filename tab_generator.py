@@ -138,13 +138,15 @@ def display_current_tab(disp_not_export):
         if (len(temp_string_tab_s) > tab_len_incl_sep):
             tab_len_incl_sep = len(temp_string_tab_s)
         
-        print(temp_string_tab_s)
+        if (disp_not_export):
+            print(temp_string_tab_s)
     
         if (len(tab[string_num]) > tab_len):
             tab_len = len(tab[string_num])
 
     # series of '-' to seperate tab and serial count
-    print("-"*tab_len_incl_sep)
+    if (disp_not_export):
+        print("-"*tab_len_incl_sep)
 
     serial_tab = serial_intro_separator + tab_entry_separator
 
@@ -152,7 +154,8 @@ def display_current_tab(disp_not_export):
         serial_entry_size_diff = max_tab_entry_size[num] - len(str(num))
         serial_entry_size_diff_char = " "*serial_entry_size_diff
         serial_tab = serial_tab + serial_entry_size_diff_char + str(num) + tab_entry_separator
-    print(serial_tab)
+    if (disp_not_export):
+        print(serial_tab)
     print("")
 
 
@@ -182,7 +185,7 @@ if __name__ == '__main__':
         elif (command == "edit" or command == "e"):
             edit_frame()
         elif (command == "view" or command == "v"):
-            display_current_tab()
+            display_current_tab(1)
         elif (command == "save" or command == "s"):
             exit()
     
